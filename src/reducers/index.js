@@ -1,3 +1,4 @@
+import { combineReducer } from 'react-redux';
 //Reducer Song List
 const songListReducer = () => {
     return [
@@ -12,5 +13,9 @@ const songSelectedReducer = (songSelected = null, action) => {
     if(action.type === "SONG_SELECTED"){
         return  action.payload;
     }
-    return songListReducer;
+    return songSelected;
 }
+combineReducer({
+    songs: songListReducer,
+    songSelected: songSelectedReducer
+})
