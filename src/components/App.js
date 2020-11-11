@@ -4,7 +4,7 @@ const App = () => {
     //Return Action
     return(
         <div>
-           {SongsList}
+           <SongsList />
         </div>
     )
 }
