@@ -1,3 +1,4 @@
+//TODO 4: tạo 1 component cha chứa các component con SongList SongDetail
 import React from 'react';
 import SongsList from './SongsList';
 import SongDetail from './SongDetail';

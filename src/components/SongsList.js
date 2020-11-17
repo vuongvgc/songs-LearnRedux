@@ -1,3 +1,11 @@
+//TODO 5: component SongList
+/**
+ * Sử dụng connect để nhận state và dispatch từ store
+ * mapStateToProps : để lấy current state và props cho component
+ * dispatchToProps: gửi 1 hành động tới công compoent
+ * hiển thị list ra màn hình sử dụng map và arr từ props
+ * button khi onclick sẽ cử đi 1 cái hành động từ dispatch
+ */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectSong } from '../actions';
@@ -32,3 +40,4 @@ const mapStateToProps = (state)  => {
 }
 
 export default connect(mapStateToProps, {selectSong})(SongsList);
+// store.getState(); store.disptach(selectionSong)

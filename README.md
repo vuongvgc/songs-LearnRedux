@@ -1,3 +1,55 @@
+# Chu Trình xây dựng project
+1. Xách định yêu cầu đề bài: 
+   - Hiển thị list nhạc: title
+   - list nhạc khi click vào sẽ hiện ra chi tiết: title Duration
+2. xách định các component:
+   -App: quản lý các componet chon
+     + songList: hiện list nhạc
+     + songDetail: hiện chi tiết
+3. xác định state là local state hay global: 
+   - Do songList cần nhạc state để hiển thị và trả về 1 cái hành động khi được click
+   - Do songSelected sẽ nhận state để hiện thị
+   - Nên State sẽ là gobal State
+
+4. Xây dựng thư mục
+   - Action: tạo index.js chứa các action Creator function: return  SELECT__SONG action object
+   - Reducer: tạo index.js chứa các reducer function: songListReducer, songSelectedReducer 
+   - Store: này lưu trong index.js của src
+   - Components: chứa các component: APP, songList, songDetail
+5. Tạo action  creator func:
+   - Function: selectSong
+   - input: song
+   - Return: object action :  {type: SELECT__SONG , payload: song}
+6. Tạo  reducer function:
+   - function : songListReducer
+     + return: arr chứa các obj song
+   - function: songSelectedReducer
+     + input: songSelected (current State) , action obj
+     + condition: action.type === "SELECT__SONG" 
+     + true: return  action.payload ( obj)
+     + false: return => songSelected
+   - Combine các reducer function lại với nhau để tạo store
+     + store: reducer function ( like argument)
+     + songs: songListReducer
+     + songSelected: songSelectedReducer
+7. Connection react to redux
+   - Sử dụng provied để wrap dự án vào bên trong
+   - Provied nhận store chứa các reducer function
+   - bên trong chứa APP component
+8. Tạo 1 APP component chứa 2 component con
+9. Tạo component songList
+   - sử dụng connect: 
+     + lấy current state: {songs, songSelectd} bằng cách sử dụng mapStateToProps
+     + lấy dispatch {selectSong} bằng cách sử dụng dispatchToProps
+   - Component sẽ nhận props với current state và dispatch
+   - sử dụng map để render list props.songs
+   - sử dụng onclick để kích hoạt dispatch với song 
+10. Tạo componet songDetail
+   - sử dụng connect: 
+     + lấy current state: { songSelectd }  bằng cách sử dụng mapStateToProps
+   - Component sẽ nhận props với current state
+   - Hiển thị ra màn hình
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,3 +1,9 @@
+//TODO 6: component SongSelected
+/**
+ * Sử dụng connect để nhận state  store
+ * mapStateToProps : để lấy current state và props cho component
+ * hiển thị chi tiết ra màn hình khi lấy object từ props nhận được
+ */
 import React from 'react';
 import { connect } from 'react-redux';
 
@@ -20,3 +26,5 @@ const mapStateToProps = (state) => {
     return {mySelectedSong: state.songSelected}
 }
 export default connect(mapStateToProps)(SongDetail);
+
+//NOTE connect(mapStateToProps)(SongDetail) same Store.getState()
